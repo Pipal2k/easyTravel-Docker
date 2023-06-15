@@ -59,7 +59,7 @@ haproxy:
   - frontend
   - angular-frontend
   volumes:
-    - $(pwd)/haproxy/:/usr/local/etc/haproxy:ro
+    - /home/ec2-user/easyTravel-Docker/haproxy/:/usr/local/etc/haproxy:ro
   
 www:
   hostname: easytravel-www
