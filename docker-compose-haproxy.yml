@@ -28,11 +28,12 @@ frontend:
   ports:
   - 8080
   links:
+  - haproxy
   - backend
   - mongodb
   environment:
     CATALINA_OPTS: "-Dconfig.apmServerDefault=${ET_APM_SERVER_DEFAULT} -Xmx525m"
-    ET_BACKEND_URL: "http://easytravel-backend:8080"
+    ET_BACKEND_URL: "http://haproxy:9090"
 
 angular-frontend:
   hostname: easytravel-angular-frontend
@@ -41,18 +42,19 @@ angular-frontend:
   ports:
   - 8080
   links:
+  - haproxy
   - backend
   - mongodb
   environment:
     CATALINA_OPTS: "-Dconfig.apmServerDefault=${ET_APM_SERVER_DEFAULT} -Xmx525m"
-    ET_BACKEND_URL: "http://easytravel-backend:8080"
+    ET_BACKEND_URL: "http://haproxy:9090"
 
 haproxy:
   hostname: haproxy
   container_name: haproxy
   image: "haproxy:2.6"
   ports:
-  - 9090:80
+  - 9090:9090
   - 8404:8404
   links:
   - backend
