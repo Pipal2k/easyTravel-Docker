@@ -69,7 +69,6 @@ www:
   - 81:80
   - 9079:9079
   - 8080:8080
-  - 80:80
   links:
   - frontend
   - angular-frontend
