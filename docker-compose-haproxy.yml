@@ -52,7 +52,7 @@ haproxy:
   container_name: haproxy
   image: "haproxy:2.6"
   ports:
-  - 80:80
+  - 9090:80
   - 8404:8404
   links:
   - backend
@@ -77,7 +77,7 @@ www:
   environment:
     ET_FRONTEND_LOCATION: "easytravel-frontend:8080"
     ET_ANGULAR_FRONTEND_LOCATION: "easytravel-angular-frontend:8080"
-    ET_BACKEND_LOCATION: "haproxy:80"
+    ET_BACKEND_LOCATION: "haproxy:9090"
 
 
 
